@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "json-server --static . --watch db.json --middlewares ./node_modules/json-server-reset"
+    "start": "json-server --port 6001 --watch db.json --middlewares ./node_modules/json-server-reset"
   },
   "repository": {
     "type": "git",
