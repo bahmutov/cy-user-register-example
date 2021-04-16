@@ -5,20 +5,21 @@
     window.addEventListener('load', () => {
       console.log('loading the current user')
       fetch('/users/1')
-      .then(r => {
-        if (r.ok) {
-          return r.json()
-        } else {
-          throw new Error(r.statusText)
-        }
-      })
-      .then(user => {
-        document.getElementById('user').innerText =
-          `${user.name.first} ${user.name.last}`
-      })
-      .catch(e => {
-        document.getElementById('user').innerText = e.message
-      })
+        .then((r) => {
+          if (r.ok) {
+            return r.json()
+          } else {
+            throw new Error(r.statusText)
+          }
+        })
+        .then((user) => {
+          document.getElementById(
+            'user',
+          ).innerText = `${user.name.first} ${user.name.last}`
+        })
+        .catch((e) => {
+          document.getElementById('user').innerText = e.message
+        })
     })
   </script>
 </body>

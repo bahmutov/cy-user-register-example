@@ -5,7 +5,9 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress run",
+    "cy:open": "cypress open",
+    "dev": "start-test 6001 cy:open",
     "start": "json-server --port 6001 --watch db.json --middlewares ./node_modules/json-server-reset"
   },
   "repository": {
@@ -22,5 +24,10 @@
   "dependencies": {
     "json-server": "0.16.3",
     "json-server-reset": "1.3.0"
+  },
+  "devDependencies": {
+    "cypress": "7.1.0",
+    "prettier": "2.2.1",
+    "start-server-and-test": "1.12.1"
   }
 }
