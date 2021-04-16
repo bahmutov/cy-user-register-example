@@ -1,12 +1,16 @@
 /// <reference types="cypress" />
 
-before(() => {
+Cypress.Commands.add('pickTestUser', () => {
   cy.fixture('data.json').then(({ users }) => {
     // the index k will be from 0 to users.length - 1
     const k = Cypress._.random(users.length - 1)
     expect(k, 'random user index').to.be.within(0, users.length - 1)
     Cypress.env('testUser', users[k])
   })
+})
+
+before(() => {
+  cy.pickTestUser()
 })
 
 beforeEach(() => {
