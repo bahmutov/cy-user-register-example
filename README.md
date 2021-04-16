@@ -1,6 +1,8 @@
 # cy-user-register-example [![ci status][ci image]][ci url]
 > Example application using fixtures in custom Cypress command
 
+Read the [Load Fixtures from Cypress Custom Commands](https://glebbahmutov.com/blog/fixtures-in-custom-commands/)
+
 ## Install and use
 
 - `npm install`
