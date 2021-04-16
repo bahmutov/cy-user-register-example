@@ -9,20 +9,24 @@ before(() => {
     const k = Cypress._.random(users.length - 1)
     expect(k, 'random user index').to.be.within(0, users.length - 1)
     testUser = users[k]
-
-    // we need to send the entire database object
-    cy.request('POST', '/reset', {
-      users: [testUser],
-    })
   })
 })
 
-it('sets the random user from the fixture list', () => {
+beforeEach(() => {
+  cy.wrap(testUser).as('testUser')
+
+  // we need to send the entire database object
+  cy.request('POST', '/reset', {
+    users: [testUser],
+  })
+})
+
+it('sets the random user from the fixture list', function () {
   cy.visit('/')
   const name = testUser.name
   cy.contains('#user', `${name.first} ${name.last}`)
 })
 
 it('has the test user', function () {
-  expect(testUser).to.be.an('object')
+  expect(this.testUser).to.be.an('object')
 })
